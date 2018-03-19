@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +22,6 @@ import java.util.Random;
  */
 
 public class StartGameActivityFragment extends Fragment {
-    public static final String TAG = "StartGameActivityFragme";
-
     public static final String CUR_EQUATION = "CurEquation";
     public static final String CUR_SCORE = "CurScore";
 
@@ -50,8 +47,8 @@ public class StartGameActivityFragment extends Fragment {
     private TextView response;
 
     private long timerMillisLeft = 30000;
-    private int answersCorrect;
-    private int answersWrong;
+    private int answersCorrect = INIT_SCORE;
+    private int answersWrong = INIT_SCORE;
 
     private DialogEvents mListener;
     private CountDownTimer mTimer;
@@ -66,9 +63,6 @@ public class StartGameActivityFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
-        Log.d(TAG, "**************************************");
-        Log.d(TAG, "onAttach: called");
-        Log.d(TAG, "**************************************");
         super.onAttach(context);
         Activity activity = getActivity();
         if (!(activity instanceof StartGameActivityFragment.DialogEvents)) {
@@ -110,9 +104,6 @@ public class StartGameActivityFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "**************************************");
-        Log.d(TAG, "onCreate: called");
-        Log.d(TAG, "**************************************");
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
@@ -120,14 +111,7 @@ public class StartGameActivityFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        Log.d(TAG, "**************************************");
-        Log.d(TAG, "onCreateView: called");
-        Log.d(TAG, "**************************************");
-
         View view = inflater.inflate(R.layout.fragment_game_start, container, false);
-
-        answersCorrect = INIT_SCORE;
-        answersWrong = INIT_SCORE;
 
         timer = view.findViewById(R.id.timer);
         equation = view.findViewById(R.id.equation);
@@ -145,21 +129,11 @@ public class StartGameActivityFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "**************************************");
-        Log.d(TAG, "onViewCreated: called");
-        Log.d(TAG, "**************************************");
-
         playGame(view, savedInstanceState);
     }
 
     private void playGame(final View v, Bundle savedInstanceState) {
-        Log.d(TAG, "**************************************");
-        Log.d(TAG, "playGame: called");
-
         if (savedInstanceState != null) {
-            Log.d(TAG, "playGame: savedInstanceState != null");
-            Log.d(TAG, "playGame: choices.get(0).getText = " + choices.get(0).getText().toString());
-
             TextView choice1 = v.findViewById(R.id.choice1);
             choice1.setText(savedInstanceState.getString(CUR_CHOICE_1));
             choice1.setTag(savedInstanceState.getBoolean(CUR_CHOICE_1_TAG));
@@ -184,7 +158,6 @@ public class StartGameActivityFragment extends Fragment {
         } else {
             setEquationAndChoices();
         }
-        Log.d(TAG, "**************************************");
 
         mTimer.start();
 
@@ -216,9 +189,6 @@ public class StartGameActivityFragment extends Fragment {
 
 
     private void setEquationAndChoices() {
-        Log.d(TAG, "**************************************");
-        Log.d(TAG, "setEquationAndChoices: called");
-
         List<Integer> usedNumbers = new ArrayList<>();
         Random random = new Random();
 
@@ -239,7 +209,6 @@ public class StartGameActivityFragment extends Fragment {
         int correctChoice = random.nextInt(4);
         for (int i = 0; i < choices.size(); i++) {
             if (i == correctChoice) {
-                Log.d(TAG, "setEquationAndChoices: choice(" + i + ") is set to true with value = " + sum);
                 choices.get(i).setText(String.valueOf(sum));
                 choices.get(i).setTag(true);
             } else {
@@ -252,7 +221,6 @@ public class StartGameActivityFragment extends Fragment {
                 choices.get(i).setTag(false);
             }
         }
-        Log.d(TAG, "**************************************");
     }
 
     @Override
