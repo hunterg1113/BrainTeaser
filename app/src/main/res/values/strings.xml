@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Brain Teaser</string>
+    <string name="action_settings">Settings</string>
+    <string name="correct_response_text">Correct!</string>
+    <string name="wrong_response_text">Wrong</string>
+    <string name="btn_go_text">Go!</string>
+    <string name="dialog_title">Time is up!</string>
+    <string name="dialog_message">You scored %1$s\nPlay again?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
