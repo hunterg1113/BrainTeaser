@@ -200,12 +200,13 @@ public class StartGameActivityFragment extends Fragment {
         String equation = x + " + " + y;
         this.equation.setText(equation);
 
-        choices = new ArrayList<>();
-        choices.add((TextView) getView().findViewById(R.id.choice1));
-        choices.add((TextView) getView().findViewById(R.id.choice2));
-        choices.add((TextView) getView().findViewById(R.id.choice3));
-        choices.add((TextView) getView().findViewById(R.id.choice4));
-
+        if (getView() != null) {
+            choices = new ArrayList<>();
+            choices.add((TextView) getView().findViewById(R.id.choice1));
+            choices.add((TextView) getView().findViewById(R.id.choice2));
+            choices.add((TextView) getView().findViewById(R.id.choice3));
+            choices.add((TextView) getView().findViewById(R.id.choice4));
+        }
         int correctChoice = random.nextInt(4);
         for (int i = 0; i < choices.size(); i++) {
             if (i == correctChoice) {

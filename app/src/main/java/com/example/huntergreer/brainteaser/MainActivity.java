@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.OnGoClickListener, StartGameActivityFragment.DialogEvents {
     public static final String TAG_RETAINED_FRAGMENT = "RetainedFragment";
 
-    private StartGameActivityFragment mRetainedFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,13 +16,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
         setSupportActionBar(toolbar);
 
         FragmentManager fm = getSupportFragmentManager();
-        mRetainedFragment = (StartGameActivityFragment) fm.findFragmentByTag(TAG_RETAINED_FRAGMENT);
+        StartGameActivityFragment retainedFragment = (StartGameActivityFragment) fm.findFragmentByTag(TAG_RETAINED_FRAGMENT);
 
-        if (mRetainedFragment == null) {
+        if (retainedFragment == null) {
             MainActivityFragment fragment = new MainActivityFragment();
             fm.beginTransaction().add(R.id.game_start_container, fragment).commit();
         } else {
-            fm.beginTransaction().replace(R.id.game_start_container, mRetainedFragment, TAG_RETAINED_FRAGMENT).commit();
+            fm.beginTransaction().replace(R.id.game_start_container, retainedFragment, TAG_RETAINED_FRAGMENT).commit();
         }
     }
 

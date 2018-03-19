@@ -15,8 +15,6 @@ import android.widget.Button;
  */
 
 public class MainActivityFragment extends Fragment {
-    private static final String TAG = "MainActivityFragment";
-
     OnGoClickListener mListener;
 
     interface OnGoClickListener {
