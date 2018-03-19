@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_game_start"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.huntergreer.brainteaser.StartGameActivityFragment">
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@android:color/holo_orange_light"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/equation"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="--s" />
+
+    <TextView
+        android:id="@+id/equation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="x + y" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/holo_orange_dark"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/equation"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="-/-" />
+
+    <TextView
+        android:id="@+id/choice1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_purple"
+        android:padding="24dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/choice4"
+        app:layout_constraintTop_toBottomOf="@+id/choice4"
+        tools:text="00" />
+
+    <TextView
+        android:id="@+id/choice2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:padding="24dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/choice1"
+        app:layout_constraintEnd_toEndOf="@+id/choice3"
+        app:layout_constraintStart_toEndOf="@+id/choice1"
+        tools:text="00" />
+
+    <TextView
+        android:id="@+id/choice3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/holo_green_light"
+        android:padding="24dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/choice4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        tools:text="00" />
+
+    <TextView
+        android:id="@+id/choice4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="24dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/equation"
+        tools:text="00" />
+
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choice1"
+        tools:text="result" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</android.support.constraint.ConstraintLayout>
